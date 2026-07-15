@@ -1,0 +1,120 @@
+{
+ "actions": [],
+ "autoname": "hash",
+ "creation": "2026-07-15 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "profile",
+  "status",
+  "column_break_1",
+  "start_time",
+  "end_time",
+  "section_break_1",
+  "total_rows",
+  "created_count",
+  "updated_count",
+  "failed_count",
+  "column_break_2",
+  "message",
+  "request_params"
+ ],
+ "fields": [
+  {
+   "fieldname": "profile",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "同步方案",
+   "options": "Kingdee Sync Profile",
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "状态",
+   "options": "Success\nFailed\nPartial Success"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "start_time",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "开始时间"
+  },
+  {
+   "fieldname": "end_time",
+   "fieldtype": "Datetime",
+   "label": "结束时间"
+  },
+  {
+   "fieldname": "section_break_1",
+   "fieldtype": "Section Break",
+   "label": "结果统计"
+  },
+  {
+   "fieldname": "total_rows",
+   "fieldtype": "Int",
+   "label": "K3 返回总行数"
+  },
+  {
+   "fieldname": "created_count",
+   "fieldtype": "Int",
+   "label": "新建数量"
+  },
+  {
+   "fieldname": "updated_count",
+   "fieldtype": "Int",
+   "label": "更新数量"
+  },
+  {
+   "fieldname": "failed_count",
+   "fieldtype": "Int",
+   "label": "失败数量"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "message",
+   "fieldtype": "Long Text",
+   "label": "日志 / 错误信息"
+  },
+  {
+   "fieldname": "request_params",
+   "fieldtype": "Code",
+   "label": "请求参数 (调试)",
+   "options": "JSON"
+  }
+ ],
+ "links": [],
+ "modified": "2026-07-15 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Kingdee Sync",
+ "name": "Kingdee Sync Log",
+ "naming_rule": "Random",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "profile",
+ "track_changes": 0
+}

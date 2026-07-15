@@ -1,0 +1,2 @@
+# 每行一个 patch 模块路径，例如：
+# kingdee_sync.patches.v0_1.some_patch

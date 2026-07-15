@@ -1,0 +1,21 @@
+[project]
+name = "kingdee_sync"
+authors = [
+    { name = "Your Company", email = "admin@example.com"}
+]
+description = "从金蝶云星空(K3Cloud) WebApi 同步基础资料/单据到 Frappe，支持前端配置 FormId/FieldKeys/FilterString/OrderString/Limit 及定时任务"
+requires-python = ">=3.10"
+readme = "README.md"
+dynamic = ["version"]
+dependencies = [
+    "croniter",
+]
+
+[build-system]
+requires = ["flit_core >=3.4,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.bench.dev-dependencies]
+
+[tool.flit.module]
+name = "kingdee_sync"

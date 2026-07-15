@@ -1,0 +1,116 @@
+{
+ "actions": [],
+ "creation": "2026-07-15 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "kingdee_field",
+  "key_subfield",
+  "attribute_name",
+  "column_break_1",
+  "lookup_form_id",
+  "lookup_match_field",
+  "column_break_2",
+  "lookup_code_field",
+  "lookup_value_field",
+  "lookup_id_field",
+  "column_break_3",
+  "frappe_id_fieldname"
+ ],
+ "fields": [
+  {
+   "columns": 3,
+   "fieldname": "kingdee_field",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "K3 物料字段",
+   "reqd": 1,
+   "description": "物料上存放辅助属性引用键的字段名，如 F_WSDY_Assistant_peima（按贵司实际环境填写，不写死）"
+  },
+  {
+   "fieldname": "key_subfield",
+   "fieldtype": "Data",
+   "label": "取值子字段(可选)",
+   "description": "若查询该字段需要用子属性语法取值（如 字段名.FId），填子属性名；留空则直接使用该字段本身的返回值作为引用键"
+  },
+  {
+   "columns": 3,
+   "fieldname": "attribute_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "对应 Item Attribute",
+   "reqd": 1,
+   "description": "Frappe/ERPNext 的 Item Attribute 名称，不存在会自动创建"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 3,
+   "default": "BOS_ASSISTANTDATA_DETAIL",
+   "fieldname": "lookup_form_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "辅助资料明细 FormId",
+   "reqd": 1,
+   "description": "用来把上面的引用键解析为具体编码/值的 K3 表单，默认为辅助资料明细"
+  },
+  {
+   "default": "FId",
+   "fieldname": "lookup_match_field",
+   "fieldtype": "Data",
+   "label": "明细表-匹配字段",
+   "reqd": 1,
+   "description": "辅助资料明细表中，用来匹配上面'引用键'的字段名"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "FNumber",
+   "fieldname": "lookup_code_field",
+   "fieldtype": "Data",
+   "label": "明细表-编码字段"
+  },
+  {
+   "columns": 3,
+   "default": "FDataValue",
+   "fieldname": "lookup_value_field",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "明细表-值字段(规格值文本)",
+   "reqd": 1
+  },
+  {
+   "default": "FEntryID",
+   "fieldname": "lookup_id_field",
+   "fieldtype": "Data",
+   "label": "明细表-内码字段(实体主键)"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "kingdee_entry_id",
+   "fieldname": "frappe_id_fieldname",
+   "fieldtype": "Data",
+   "label": "内码存储字段(Frappe，自动创建)",
+   "description": "会在 Item Attribute Value 上自动创建此自定义字段，用于保存上面'内码字段'的值"
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2026-07-15 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Kingdee Sync",
+ "name": "Kingdee Sync Variant Attribute",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

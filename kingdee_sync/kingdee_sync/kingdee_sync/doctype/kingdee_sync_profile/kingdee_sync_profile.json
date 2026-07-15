@@ -1,0 +1,240 @@
+{
+ "actions": [],
+ "autoname": "field:profile_name",
+ "creation": "2026-07-15 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "profile_name",
+  "enabled",
+  "column_break_1",
+  "last_sync_status",
+  "last_sync_time",
+  "section_break_query",
+  "form_id",
+  "field_keys",
+  "column_break_2",
+  "filter_string",
+  "order_string",
+  "section_break_paging",
+  "page_size",
+  "top_row_count",
+  "column_break_3",
+  "sub_system_id",
+  "section_break_target",
+  "target_doctype",
+  "auto_create_custom_fields",
+  "sync_field_mapping",
+  "section_break_variant",
+  "is_variant_material",
+  "variant_of_kingdee_field",
+  "variant_of_frappe_field",
+  "variant_attributes",
+  "section_break_cron",
+  "cron_expression",
+  "column_break_4",
+  "last_sync_message"
+ ],
+ "fields": [
+  {
+   "fieldname": "profile_name",
+   "fieldtype": "Data",
+   "label": "同步方案名称",
+   "reqd": 1,
+   "unique": 1,
+   "in_list_view": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "启用",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_sync_status",
+   "fieldtype": "Select",
+   "label": "上次同步状态",
+   "options": "\nNever Run\nSuccess\nFailed\nPartial Success",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "last_sync_time",
+   "fieldtype": "Datetime",
+   "label": "上次同步时间",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "section_break_query",
+   "fieldtype": "Section Break",
+   "label": "K3 查询参数 (ExecuteBillQuery)"
+  },
+  {
+   "fieldname": "form_id",
+   "fieldtype": "Data",
+   "label": "Form Id",
+   "reqd": 1,
+   "description": "K3 业务对象表单标识，如 BD_MATERIAL(物料)、BD_Customer(客户)、BD_Supplier(供应商)"
+  },
+  {
+   "fieldname": "field_keys",
+   "fieldtype": "Small Text",
+   "label": "Field Keys",
+   "description": "英文逗号分隔，如 FMATERIALID,FNumber,FName。留空则根据下方字段映射自动生成"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "filter_string",
+   "fieldtype": "Small Text",
+   "label": "Filter String",
+   "description": "支持 SQL Server 表达式，原样传给 K3，如 FCreateOrgId.FNumber='10'，留空表示不过滤"
+  },
+  {
+   "fieldname": "order_string",
+   "fieldtype": "Data",
+   "label": "Order String",
+   "description": "排序字段，如 FNumber，可留空"
+  },
+  {
+   "fieldname": "section_break_paging",
+   "fieldtype": "Section Break",
+   "label": "分页 / 数量限制"
+  },
+  {
+   "default": "2000",
+   "fieldname": "page_size",
+   "fieldtype": "Int",
+   "label": "Limit (每页行数，最大10000)"
+  },
+  {
+   "default": "0",
+   "fieldname": "top_row_count",
+   "fieldtype": "Int",
+   "label": "Top Row Count (0=不限制)"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sub_system_id",
+   "fieldtype": "Data",
+   "label": "Sub System Id (可选)"
+  },
+  {
+   "fieldname": "section_break_target",
+   "fieldtype": "Section Break",
+   "label": "目标 Frappe DocType 与字段映射"
+  },
+  {
+   "fieldname": "target_doctype",
+   "fieldtype": "Link",
+   "label": "Target DocType",
+   "options": "DocType",
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "auto_create_custom_fields",
+   "fieldtype": "Check",
+   "label": "自动创建缺失的自定义字段",
+   "description": "同步前自动检测字段映射/匹配键/变体属性所需的 Frappe 字段是否存在，不存在则自动创建 Custom Field（含 K3 内码字段，如 FMATERIALID/FCUSTID/FSupplierId）。关闭后需自行用 Customize Form 提前建好"
+  },
+  {
+   "fieldname": "sync_field_mapping",
+   "fieldtype": "Table",
+   "label": "字段映射",
+   "options": "Kingdee Sync Field Mapping",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_variant",
+   "fieldtype": "Section Break",
+   "label": "变体 (物料多规格 / 辅助属性)",
+   "description": "金蝶用辅助资料类字段(如 F_WSDY_Assistant_peima)表示物料变体的规格值；启用后会自动映射为 Frappe/ERPNext 的 Item Attribute + Item Attribute Value，并写入 Item 的 attributes 子表"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_variant_material",
+   "fieldtype": "Check",
+   "label": "启用变体识别 (Is Variant Material)"
+  },
+  {
+   "depends_on": "eval:doc.is_variant_material",
+   "fieldname": "variant_of_kingdee_field",
+   "fieldtype": "Data",
+   "label": "母件字段 (Variant Of - K3 字段)",
+   "description": "K3 中存放母件标识的字段名，可留空（留空则只写变体属性，不设置 variant_of）"
+  },
+  {
+   "depends_on": "eval:doc.is_variant_material",
+   "fieldname": "variant_of_frappe_field",
+   "fieldtype": "Data",
+   "label": "母件查找字段 (Frappe 字段)",
+   "description": "用哪个 Frappe 字段去查找母件记录，留空默认使用字段映射中匹配键(is_key)所用的字段"
+  },
+  {
+   "depends_on": "eval:doc.is_variant_material",
+   "fieldname": "variant_attributes",
+   "fieldtype": "Table",
+   "label": "变体属性映射",
+   "options": "Kingdee Sync Variant Attribute"
+  },
+  {
+   "fieldname": "section_break_cron",
+   "fieldtype": "Section Break",
+   "label": "定时任务"
+  },
+  {
+   "default": "0 */2 * * *",
+   "fieldname": "cron_expression",
+   "fieldtype": "Data",
+   "label": "Cron 表达式",
+   "description": "标准5段 cron，例如 0 */2 * * * 表示每2小时执行一次。系统每 5 分钟检查一次是否到期"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_sync_message",
+   "fieldtype": "Small Text",
+   "label": "上次同步信息",
+   "read_only": 1
+  }
+ ],
+ "links": [],
+ "modified": "2026-07-15 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Kingdee Sync",
+ "name": "Kingdee Sync Profile",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

@@ -1,0 +1,117 @@
+{
+ "actions": [],
+ "creation": "2026-07-15 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "server_url",
+  "account_id",
+  "app_id",
+  "app_secret",
+  "column_break_1",
+  "username",
+  "password",
+  "language",
+  "org_num",
+  "section_break_2",
+  "enable_debug_log",
+  "help_html"
+ ],
+ "fields": [
+  {
+   "fieldname": "server_url",
+   "fieldtype": "Data",
+   "label": "服务器地址 (Server URL)",
+   "reqd": 1,
+   "description": "如 https://xxxx.ik3cloud.com/k3cloud/ ，末尾斜杠可有可无"
+  },
+  {
+   "fieldname": "account_id",
+   "fieldtype": "Data",
+   "label": "账套ID (Account/DC ID)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "app_id",
+   "fieldtype": "Data",
+   "label": "应用ID (App ID)",
+   "reqd": 1,
+   "description": "在金蝶云星空「第三方系统授权」中获取"
+  },
+  {
+   "fieldname": "app_secret",
+   "fieldtype": "Password",
+   "label": "应用密钥 (App Secret)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "username",
+   "fieldtype": "Data",
+   "label": "登录用户名 (Username)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "password",
+   "fieldtype": "Password",
+   "label": "登录密码 (Password)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "language",
+   "fieldtype": "Select",
+   "label": "语言 (Language)",
+   "options": "2052\n1033",
+   "default": "2052"
+  },
+  {
+   "fieldname": "org_num",
+   "fieldtype": "Data",
+   "label": "组织编码 (Org Num)",
+   "default": "0",
+   "description": "多数场景可保持默认 0"
+  },
+  {
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break",
+   "label": "其他"
+  },
+  {
+   "fieldname": "enable_debug_log",
+   "fieldtype": "Check",
+   "label": "启用调试日志",
+   "description": "开启后同步过程中的请求/响应会写入 Error Log，便于排查问题"
+  },
+  {
+   "fieldname": "help_html",
+   "fieldtype": "HTML",
+   "options": "<div class='text-muted small'>保存后点击右上角「测试连接」按钮验证账号密码是否可登录金蝶云星空。</div>"
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-07-15 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Kingdee Sync",
+ "name": "Kingdee Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
